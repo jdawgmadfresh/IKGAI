@@ -24,12 +24,8 @@ namespace Main.Controllers
         // GET: ProduktetController/Details/5
         public ActionResult Details(int id)
         {
-            Produktet p1 = new Produktet()
-            {
-                Emri = "Produkti " + id,
-                Numri = id
-            };
-            return View(p1);
+            var produkti = _db.Produktet.Where(x => x.Numri.Equals(id)).FirstOrDefault();
+            return View(produkti);
         }
 
         // GET: ProduktetController/Create
